@@ -35,5 +35,23 @@
     <p matLine>--{{comment.author}} {{comment.date | date}}</p>
     </mat-list-item>
   </mat-list>
+  <form>
+    <p>
+    <mat-form-field>
+      <input matInput formControlName="commentname" placeholder="Name" type="text" required>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field>
+      <input matInput formControlName="range" type="range">
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field>
+      <textarea matInput formControlName="message" type="text" rows="12"></textarea>
+    </mat-form-field>
+  </p> 
+  <button type="submit" mat-button class="background-primary text-floral-white">Submit</button> 
+  </form>
 </div>
 </div>
