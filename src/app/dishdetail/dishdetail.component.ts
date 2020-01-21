@@ -1,4 +1,4 @@
-import { Component, OnInit,Input} from '@angular/core';
+import { Component, OnInit,Input,ViewChild} from '@angular/core';
 import { Params,ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { Dish } from '../shared/dish';
@@ -14,7 +14,8 @@ import {MatSliderModule} from '@angular/material/slider';
   styleUrls: ['./dishdetail.component.scss']
 })
 export class DishdetailComponent implements OnInit {
-
+  @ViewChild('fform')feedbackFormDirective;
+  commentForm:FormGroup;
   dishIds: string[];
   prev: string;
   next: string;
@@ -36,6 +37,9 @@ export class DishdetailComponent implements OnInit {
     const index = this.dishIds.indexOf(dishId);
     this.prev = this.dishIds[(this.dishIds.length + index - 1) % this.dishIds.length];
     this.next = this.dishIds[(this.dishIds.length + index + 1) % this.dishIds.length];
+  }
+  createForm:void{
+    
   }
 
 }
