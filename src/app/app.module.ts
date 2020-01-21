@@ -61,6 +61,7 @@ import { LoginComponent } from './login/login.component';
     MatSlideToggleModule,
     ReactiveFormsModule,
     MatProgressSpinnerModule,
+    MatSliderModule
   ],
   entryComponents:[
     LoginComponent

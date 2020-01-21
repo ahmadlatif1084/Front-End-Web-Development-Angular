@@ -8,6 +8,7 @@ import {FormBuilder,FormGroup,Validators} from '@angular/forms';
 
 
 
+
 @Component({
   selector: 'app-dishdetail',
   templateUrl: './dishdetail.component.html',
@@ -22,22 +23,22 @@ export class DishdetailComponent implements OnInit {
   prev: string;
   next: string;
   dish: Dish;
-formErrors={
-'author':'',
-'comment':''
-};
-validationMessages={
-  'author':{
-   'required':'Author Name is Required',
-   'minlength':'Author Name minlength is 2',
-   'maclength':'Author Name maxlength is 10' 
-  },
-  'comment':{
-    'required':'Comment is Required',
-    'minlength':'Commen minlength is 2',
-    'maclength':'Comment maxlength is 10' 
-   },
-}
+  formErrors={
+  'author':'',
+  'comment':''
+  };
+    validationMessages={
+      'author':{
+      'required':'Author Name is Required',
+      'minlength':'Author Name minlength is 2',
+      'maclength':'Author Name maxlength is 10' 
+      },
+      'comment':{
+        'required':'Comment is Required',
+        'minlength':'Commen minlength is 2',
+        'maclength':'Comment maxlength is 10' 
+      },
+    }
 
   constructor(private dishService:DishService,
     private location:Location,
@@ -48,6 +49,7 @@ validationMessages={
      createForm():void{
       this.commentForm = this.fb.group({
         author:['',[Validators.required,Validators.minLength(2),Validators.maxLength(25)]],
+        rating:'',
         comment:['',[Validators.required,Validators.minLength(2),Validators.maxLength(10)]]
       });
       this.commentForm.valueChanges
@@ -91,10 +93,11 @@ validationMessages={
     this.next = this.dishIds[(this.dishIds.length + index + 1) % this.dishIds.length];
   }
   onSubmit(){
-    this.commentForm = this.commentForm.value;
+    this.comment = this.commentForm.value;
     console.log(this.comment);
     this.commentForm.reset({
      author:"",
+     rating:"",
      comment:""
     });
     this.commentFormDirective.resetForm();
