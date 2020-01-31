@@ -17,6 +17,8 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {ReactiveFormsModule} from '@angular/forms';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import {MatSliderModule} from '@angular/material/slider';
+import {HttpClientModule} from '@angular/common/http';  
+import { baseURL } from './shared/baseurl';
 import { AppComponent } from './app.component';
 import 'hammerjs';
 import { MenuComponent } from './menu/menu.component';
@@ -43,6 +45,7 @@ import { LoginComponent } from './login/login.component';
     LoginComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
@@ -61,13 +64,14 @@ import { LoginComponent } from './login/login.component';
     MatSlideToggleModule,
     ReactiveFormsModule,
     MatProgressSpinnerModule,
-    MatSliderModule
+    MatSliderModule,
   ],
   entryComponents:[
     LoginComponent
   ],
   providers: [
-    DishService
+    {provide:'BaseURL',useValue:baseURL},
+    DishService,
   ],
   bootstrap: [AppComponent]
 })
