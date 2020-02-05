@@ -14,11 +14,11 @@ export class PromotionService {
     return this.http.get<Promotion[]>(baseURL + 'promotions');
   }
   getPromotion(id:string): Observable<Promotion> {
-    return this.http.get<Promotion>(baseURL + 'promo/' + id);  
+    return this.http.get<Promotion>(baseURL + 'promotions/' + id);  
 
   }
   getFeaturedPromotion(): Observable<Promotion> {
-    return this.http.get<Promotion[]>(baseURL + 'promo?featured=true').pipe(map(promo => promo[0]));
+    return this.http.get<Promotion[]>(baseURL + 'promotions?featured=true').pipe(map(promo => promo[0]));
 
   }
 }
