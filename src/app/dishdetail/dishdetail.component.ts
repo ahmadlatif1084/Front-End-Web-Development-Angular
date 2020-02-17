@@ -27,6 +27,8 @@ import {FormBuilder,FormGroup,Validators} from '@angular/forms';
 })
 export class DishdetailComponent implements OnInit {
 
+  
+
   @ViewChild('fform')commentFormDirective;
   commentForm:FormGroup;
   comment:Comment;
@@ -115,8 +117,9 @@ export class DishdetailComponent implements OnInit {
   }
   onSubmit(){
     this.comment = this.commentForm.value;
+    console.log(this.comment);
     this.comment.date = new Date().toISOString();
-    this.dishcopy.comments.push(this.comment);
+     this.dishcopy.comments.push(this.comment);
     this.dishService.putDish(this.dishcopy)
          .subscribe(dish=>{
            this.dish = dish; this.dishcopy = dish;
