@@ -38,6 +38,9 @@ export class DishService {
         'Content-Type': 'application/json'
       })
     };
+    console.log (dish);
+    console.log(dish.id);
+    console.log(httpOptions);
     return this.http.put<Dish>(baseURL + 'dishes/' + dish.id,dish,httpOptions)
                 .pipe(catchError(this.processHTTPMsgService.handleError));
   }
